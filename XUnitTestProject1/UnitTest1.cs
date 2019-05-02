@@ -15,8 +15,7 @@ namespace XUnitTestProject1
         [Fact]
         public void Test1()
         {
-            PluginLoader loader = PluginLoader.CreateFromAssemblyFile(Path.Combine(Directory.GetCurrentDirectory(),"SomeAssembly.dll"),
-                        sharedTypes: new[] { typeof(ICompositionModule<IDependencyRegistrator>) });
+            PluginLoader loader = PluginLoader.CreateFromAssemblyFile(Path.Combine(Directory.GetCurrentDirectory(), "SomeAssembly.dll"), PluginLoaderOptions.PreferSharedTypes);
             Assembly assembly = loader.LoadDefaultAssembly();
 
             var typeInfoExtractionService = new TypeInfoExtractionService();
