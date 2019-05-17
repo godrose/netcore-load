@@ -1,9 +1,9 @@
 ﻿using Solid.Practices.IoC;
 using Solid.Practices.Modularity;
 
-namespace SomeAssembly
+namespace SomeAssembly.Impl
 {
-    public class Module : ICompositionModule<IDependencyRegistrator>
+    class AnotherModule : ICompositionModule<IDependencyRegistrator>
     {
         public void RegisterModule(IDependencyRegistrator dependencyRegistrator)
         {

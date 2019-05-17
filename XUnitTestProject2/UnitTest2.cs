@@ -1,9 +1,9 @@
 using FluentAssertions;
 using Solid.Practices.Composition.Container;
-using Solid.Practices.IoC;
 using Solid.Practices.Modularity;
 using System.Linq;
 using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace XUnitTestProject2
@@ -18,7 +18,7 @@ namespace XUnitTestProject2
             var typeInfoExtractionService = new TypeInfoExtractionService();
             var moduleType = typeInfoExtractionService.GetTypes(assembly).FirstOrDefault();
 
-            var isType = typeInfoExtractionService.IsCompositionModule(moduleType, typeof(ICompositionModule<IDependencyRegistrator>));
+            var isType = typeInfoExtractionService.IsCompositionModule(moduleType, typeof(ICompositionModule<IServiceCollection>));
             isType.Should().BeTrue();
         }
     }
