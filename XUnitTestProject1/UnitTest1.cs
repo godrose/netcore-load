@@ -15,13 +15,17 @@ namespace XUnitTestProject1
         [Fact]
         public void Test1()
         {
-            PluginLoader loader = PluginLoader.CreateFromAssemblyFile(Path.Combine(Directory.GetCurrentDirectory(), "SomeAssembly.dll"), PluginLoaderOptions.PreferSharedTypes);
+            PluginLoader loader = PluginLoader.CreateFromAssemblyFile(
+                Path.Combine(Directory.GetCurrentDirectory(), "SomeAssembly.dll"),
+                r => r.PreferSharedTypes = true);
             Assembly assembly = loader.LoadDefaultAssembly();
 
             var typeInfoExtractionService = new TypeInfoExtractionService();
             var moduleType = typeInfoExtractionService.GetTypes(assembly).FirstOrDefault();
 
-            var isType = typeInfoExtractionService.IsCompositionModule(moduleType, typeof(ICompositionModule<IDependencyRegistrator>));
+            var isType =
+                typeInfoExtractionService.IsCompositionModule(moduleType,
+                    typeof(ICompositionModule<IDependencyRegistrator>));
             isType.Should().BeTrue();
         }
     }
