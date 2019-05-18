@@ -1,0 +1,10 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "urls": "http://*:32064/",
+  "AllowedHosts": "*",
+  "MongoDbEndpoint": "mongodb://localhost:27017"
+}
