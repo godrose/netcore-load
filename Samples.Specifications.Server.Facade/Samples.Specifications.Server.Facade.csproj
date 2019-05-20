@@ -23,6 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Samples.Specifications.Server.Domain\Samples.Specifications.Server.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="Samples.Specifications.Server.Facade.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
