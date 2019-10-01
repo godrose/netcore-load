@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="LogoFX.Server.Bootstrapping" Version="2.1.0" />
-    <PackageReference Include="McMaster.NETCore.Plugins" Version="0.3.0-beta.36" />
+    <PackageReference Include="McMaster.NETCore.Plugins" Version="0.3.0" />
   </ItemGroup>
 
 </Project>

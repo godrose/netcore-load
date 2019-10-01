@@ -16,9 +16,9 @@ namespace SomeAssembly.Facade.IntegrationTests
 
             var dependency1 = serviceCollection.BuildServiceProvider().GetService(typeof(IDependency));            
 
-            startup = new Startup();
-            serviceCollection = new ServiceCollection();
-            startup.ConfigureServices(serviceCollection);
+            //startup = new Startup();
+            //serviceCollection = new ServiceCollection();
+            //startup.ConfigureServices(serviceCollection);
             var dependency2 = serviceCollection.BuildServiceProvider().GetService(typeof(IDependency));
 
             dependency1.GetHashCode().Should().Be(dependency2.GetHashCode());
