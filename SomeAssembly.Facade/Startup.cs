@@ -4,6 +4,7 @@ using LogoFX.Server.Bootstrapping.Mvc;
 using McMaster.NETCore.Plugins;
 using Microsoft.Extensions.DependencyInjection;
 using Solid.Bootstrapping;
+using Solid.Practices.Composition;
 using BootstrapperBase = LogoFX.Server.Bootstrapping.BootstrapperBase;
 
 namespace SomeAssembly.Facade
@@ -12,7 +13,7 @@ namespace SomeAssembly.Facade
     {               
         public Bootstrapper ConfigureServices(IServiceCollection services)
         {
-            Solid.Practices.Composition.AssemblyLoader.LoadAssembliesFromPaths = files =>
+            AssemblyLoader.LoadAssembliesFromPaths = files =>
                 files.Select(r =>
                     PluginLoader.CreateFromAssemblyFile(Path.Combine(Directory.GetCurrentDirectory(), r), config => config.PreferSharedTypes = true)
                         .LoadDefaultAssembly());
