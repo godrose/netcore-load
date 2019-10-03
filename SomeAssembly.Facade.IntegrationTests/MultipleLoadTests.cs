@@ -13,13 +13,14 @@ namespace SomeAssembly.Facade.IntegrationTests
             var startup = new Startup();
             var serviceCollection = new ServiceCollection();
             startup.ConfigureServices(serviceCollection);
+            var serviceProvider = serviceCollection.BuildServiceProvider();
 
-            var dependency1 = serviceCollection.BuildServiceProvider().GetService(typeof(IDependency));            
+            var dependency1 = serviceProvider.GetService(typeof(IDependency));            
 
             //startup = new Startup();
             //serviceCollection = new ServiceCollection();
             //startup.ConfigureServices(serviceCollection);
-            var dependency2 = serviceCollection.BuildServiceProvider().GetService(typeof(IDependency));
+            var dependency2 = serviceProvider.GetService(typeof(IDependency));
 
             dependency1.GetHashCode().Should().Be(dependency2.GetHashCode());
         }

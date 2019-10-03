@@ -12,15 +12,22 @@ namespace Samples.Specifications.Server.Api.Controllers
     public class UserController : Controller
     {
         private readonly IUserRepository _userRepository;
+        private readonly UserMapper _userMapper;
 
-        public UserController(IUserRepository userRepository) => _userRepository = userRepository;
+        public UserController(
+            IUserRepository userRepository,
+            UserMapper userMapper)
+        {
+            _userRepository = userRepository;
+            _userMapper = userMapper;
+        }
 
         [HttpGet]
         public async Task<IEnumerable<UserDto>> Get()
         {
 
             var users = await _userRepository.GetAll();
-            return users.Select(UserMapper.MapToUserDto);
+            return users.Select(_userMapper.MapToUserDto);
         }
     }
 }
